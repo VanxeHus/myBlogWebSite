@@ -1,0 +1,49 @@
+//编程文章表
+create table program(
+    id int(10) auto_increment,   
+    abstract text not null,
+    title char(255) not null,
+    content text not null,
+    time date not null,
+    read_num int(10) default 0,
+    primary key(id) 
+)default charset=utf8;
+
+//数学算法文章表
+create table mathematics(
+    id int(10) auto_increment,   
+    abstract text not null,
+    title char(255) not null,
+    content text not null,
+    time date not null,
+    read_num int(10) default 0,
+    primary key(id) 
+)default charset=utf8;
+//树莓派文章表
+create table raspbarryPi(
+    id int(10) auto_increment,   
+    abstract text not null,
+    title char(255) not null,
+    content text not null,
+    time date not null,
+    read_num int(10) default 0,
+    primary key(id) 
+)default charset=utf8;
+//心理学文章表
+create table psychology(
+    id int(10) auto_increment,   
+    abstract text not null,
+    title char(255) not null,
+    content text not null,
+    time date not null,
+    read_num int(10) default 0,
+    primary key(id) 
+)default charset=utf8;
+
+//测试条目program
+insert into program(abstract,title,content,time) values(
+"哈哈哈哈哈急啊急啊急啊急哈哈哈哈哈急啊急啊急啊急哈哈哈哈哈急啊急啊急啊急",
+"测试文章很长很长很长",
+"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
+"2017-10-24"
+);
