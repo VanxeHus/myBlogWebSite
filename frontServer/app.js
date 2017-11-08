@@ -9,6 +9,7 @@ var server = http.createServer(function(req, rep) {
     let url = req.url;
     console.log("app,url:" + url);
     if (url == "/") {
+        //根目录：返回首页
         let realPath = path.resolve("./staticFile", "./html");
         rep.writeHead(200, { "Content-Type": "text/html" });
         fs.createReadStream(realPath + "/index.html").pipe(rep);

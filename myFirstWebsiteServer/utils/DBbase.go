@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -51,7 +52,7 @@ func NewDb(DbConfig *DBConfig) *Dbbase {
 
 	//构造连接数据库的参数
 	sqlPara := user + ":" + psd + "@tcp(" + dbhost + ":" + dbport + ")/" + name + "?charset=utf8"
-
+	fmt.Println(sqlPara)
 	//连接数据库
 	temp, err := sql.Open(dbname, sqlPara)
 	CheckErr("NewDb", err)
@@ -114,13 +115,13 @@ func confimTable(classify int, selectPrase *string) error {
 	var err error
 	switch classify {
 	case 0:
-		*selectPrase += "Program"
+		*selectPrase += "program"
 	case 1:
-		*selectPrase += "Mathematics"
+		*selectPrase += "mathematics"
 	case 2:
-		*selectPrase += "Psychology"
+		*selectPrase += "psychology"
 	case 3:
-		*selectPrase += "RaspbarryPi"
+		*selectPrase += "raspbarryPi"
 	default:
 		err = errors.New("类型错误")
 	}

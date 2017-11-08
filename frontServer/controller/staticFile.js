@@ -9,10 +9,12 @@ var staticFile = function(req, rep) {
     //文件处理
     fs.stat(realPath, function(err, stats) {
         if (!err && stats.isFile()) {
+            //直接返回找到的数据
             console.log("200" + req.url);
             rep.writeHead(200);
             fs.createReadStream(realPath).pipe(rep);
         } else {
+            //404notfound
             console.log("404", req.url);
             rep.writeHead(404);
             rep.end("404 not found");

@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"fmt"
+
 	"../utils"
 )
 
@@ -10,8 +12,9 @@ type ArticleController struct {
 
 func (ac *ArticleController) Handle() {
 	if ac.ctx.Params["class"] != "" {
-		db := utils.NewDb(utils.LoadDBConfig("./config/DBConfig"))
+		db := utils.NewDb(utils.LoadDBConfig("./config/DBConfig")) //建立db实例
 		var class int
+		//映射
 		switch ac.ctx.Params["class"] {
 		case "/program":
 			class = 0
@@ -22,9 +25,11 @@ func (ac *ArticleController) Handle() {
 		case "/raspbarryPi":
 			class = 3
 		}
-		res, err := db.ReadAbstract(class)
+		res, err := db.ReadAbstract(class) //读取数据
 		utils.CheckErr("acontroller", err)
-		_, err = ac.ctx.ResponseWriter.Write(res)
+		ac.ctx.ResponseWriter.Header().Set("Access-Control-Allow-Origin", "*")
+		fmt.Println(res)
+		_, err = ac.ctx.ResponseWriter.Write(res) //响应
 		utils.CheckErr("responswrite", err)
 	}
 }

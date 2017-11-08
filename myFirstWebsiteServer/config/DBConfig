@@ -1,6 +1,6 @@
 {
 	"DBname":"mysql",
-	"Name":"blogwebsite",
+	"Name":"myBlogWebSite",
 	"DBhost":"127.0.0.1",
 	"DBport":"3306",
 	"UserName":"VanxeHus",
