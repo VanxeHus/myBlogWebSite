@@ -1,8 +1,0 @@
-{
-	"DBname":"mysql",
-	"Name":"myBlogWebSite",
-	"DBhost":"127.0.0.1",
-	"DBport":"3306",
-	"UserName":"VanxeHus",
-	"UserPsd":"xsfxsfxsfxsf"
-}
