@@ -1,9 +1,13 @@
+
 .artiMain{
     position: relative;
-    width: 100%;
+    left: 10%;
+    right: 0;
+    width: 90%;
     height: 100%;
     overflow: auto;
 }
+/*文章摘要*/
 .blogItem {
     position: relative;
     margin:10% 20%;
@@ -25,4 +29,35 @@
     font-size: 25px;
     top: 40%;
     left: 0%;
+}
+
+/*文章遮罩层*/
+.containCover_layer{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width:90%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+}
+.containCover_layer::after,.containCover_layer::before{
+    position: absolute;
+    height: 50vh;
+    width: 100%;
+    content: "";
+    left: 0;
+    z-index: 2;
+    background-color: black;
+}
+.containCover_layer::before{
+    top:0;
+    transform: translateY(-100%);
+}
+.containCover_layer::after{
+    bottom: 0;
+    transform: translateY(100%);
+}
+.containCover_layerLoad::before,.containCover_layerLoad::after{
+    transform: translateY(0);
 }
