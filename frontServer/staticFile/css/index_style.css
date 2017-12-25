@@ -35,7 +35,6 @@ body {
     position: relative;
     top:100px;
     border: 2px 0 2px 0;
-    background-image: url(../../source/texture.png);
     z-index: 3;
     list-style-type: none;
 }
@@ -52,27 +51,31 @@ body {
     width: 60%;
     height: 60%;
     opacity: 0;
+    text-decoration: none;
+}
+.navg ul li a:link{
+    color: #000000;
 }
 .navg ul li :hover{
     background-color: rgb(243, 243, 243);
 }
 .navg ul :nth-child(1) a{
-    animation: ul_open 0.2s linear forwards;
+    animation: ulOpen 0.2s linear forwards;
 }
 .navg ul :nth-child(2) a{
-    animation: ul_open 0.2s linear 0.3s forwards;
+    animation: ulOpen 0.2s linear 0.3s forwards;
 }
 .navg ul :nth-child(3) a{
-    animation: ul_open 0.2s linear .6s forwards;
+    animation: ulOpen 0.2s linear .6s forwards;
 }
 .navg ul :nth-child(4) a{
-    animation: ul_open 0.2s linear .9s forwards;
+    animation: ulOpen 0.2s linear .9s forwards;
 }
 .navg ul :nth-child(5) a{
-    animation: ul_open 0.2s linear 1.2s forwards;
+    animation: ulOpen 0.2s linear 1.2s forwards;
 }
 /*选中的菜单按钮样式*/
-.li_active{
+.liActive{
     margin:0 0 5px 0;
     height: 60px;
     width:160px;
@@ -80,14 +83,14 @@ body {
     border-style: dashed;
     background-color: black;
 }
-.li_active span{
+.liActive span{
     color: white;
 }
-.li_active :hover{
+.liActive :hover{
     background-color: black !important;
 }
 /*菜单列表载入动画*/
-@keyframes ul_open{
+@keyframes ulOpen{
     0%{
         opacity:0;
     }
