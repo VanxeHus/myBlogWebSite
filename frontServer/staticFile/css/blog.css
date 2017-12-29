@@ -1,9 +1,8 @@
 
 .artiMain{
-    position: relative;
+    position: absolute;
     left: 80px;
     right: 0;
-    width: 83%;
     height: 100%;
     overflow: auto;
 }
@@ -32,15 +31,18 @@
 }
 
 /*文章遮罩层*/
-.containCover_layer{
+.artiCover_layer{
     position: absolute;
     top: 0;
     width:100%;
     height: 100%;
     overflow: hidden;
-    z-index: 9;
+    z-index: -1;
+    opacity: 0;
+    background-color: white;
+    transition: opacity 0.7s ease-in-out 1.3s,z-index 0.2s ease 2s;
 }
-.containCover_layer::after,.containCover_layer::before{
+.artiCover_layer::after,.artiCover_layer::before{
     position: absolute;
     height: 50vh;
     width: 100%;
@@ -48,28 +50,35 @@
     left: 0;
     z-index: 2;
     background-color: black;
-    transition:transform 0.7s ease-in-out 0.6s;
+    transition:transform 0.7s ease-in-out 0.8s;
 }
-.containCover_layer::before{
+.artiCover_layer::before{
     top:0;
     transform: translateY(-100%);
 }
-.containCover_layer::after{
+.artiCover_layer::after{
     bottom: 0;
     transform: translateY(100%);
 }
-.containCover_layerLoad::before,.containCover_layerLoad::after{
+
+/*文章遮罩层加载*/
+.artiCover_layerLoading{
+    opacity: 1;
+    z-index: 9;
+    transition: opacity 0.3s ease,z-index 0s ease;
+}
+.artiCover_layerLoading::before,.artiCover_layerLoading::after{
     transform: translateY(0);
     transition:transform 0.7s ease;
 }
-/*加载条样式*/
-.containLoading_bar{
+/*文章加载条样式*/
+.artiLoading_bar{
     position: absolute;
     top:50%;
     height: 2px;
     width: 100%;
 }
-.containLoading_bar::before{
+.artiLoading_bar::before{
     position: absolute;
     top: 0;
     left: 0;
@@ -82,7 +91,73 @@
     z-index: 3;
     transition:transform 1s ease-in-out,opacity 1s ease-in-out 0.2s;
 }
-.containCover_layerLoad .containLoading_bar::before{
+.artiCover_layerLoading .artiLoading_bar::before{
+    transform: scaleX(0.2);
+    opacity: 1;
+    transition:transform 1s ease 0.6s,opacity 1s ease 0.3s;
+}
+/*分类遮罩层样式*/
+.classCover_layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+    background-color: white;
+    transition: opacity 0.7s ease-in-out 1.3s,z-index 0.2s ease 2s;
+}
+.classCover_layer::before,.classCover_layer::after{
+    position: absolute;
+    left: 0;
+    height: 50vh;
+    width: 100%;
+    content:"";
+    z-index: 2;
+    background-color: black;
+    transition:transform 0.7s ease-in-out 0.8s;
+}
+.classCover_layer::before{
+    top:0;
+    transform: translateY(-100%);
+}
+.classCover_layer::after{
+    bottom: 0;
+    transform: translateY(100%);
+}
+/*分类遮罩层加载样式*/
+.classCover_layerLoading{
+    opacity: 1;
+    z-index: 9;
+    transition: opacity 0.3s ease,z-index 0s ease;
+}
+.classCover_layerLoading::before,.classCover_layerLoading::after{
+    transform: translateY(0);
+    transition:transform 0.7s ease;
+}
+/*分类加载条样式*/
+.classLoading_bar{
+    position: absolute;
+    top:50%;
+    height: 2px;
+    width: 100%;
+}
+.classLoading_bar::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    content: "";
+    transform: scaleX(1);
+    opacity: 0;
+    background-color: white;
+    z-index: 3;
+    transition:transform 1s ease-in-out,opacity 1s ease-in-out 0.2s;
+}
+.classCover_layerLoading .classLoading_bar::before{
     transform: scaleX(0.2);
     opacity: 1;
     transition:transform 1s ease 0.6s,opacity 1s ease 0.3s;
