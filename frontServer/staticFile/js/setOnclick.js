@@ -1,3 +1,5 @@
+import { ajax } from "../../ajax/getData.js"
+import { view } from "../../view/renderView.js"
 var btnOnclick = {};
 btnOnclick.SetHB_onclick = function () {
     var hideBtn = document.getElementById("hideBtn");
@@ -8,12 +10,13 @@ btnOnclick.SetMenu_onclick = function () {
     var menuList = document.getElementById("menuMx").children;
     var i;
     for (i = 0; i < menuList.length; ++i) {
-        menuList[i].onclick = btnOnclick.meneBtn_onclick(i);
+        menuList[i].disabled=false;
+        menuList[i].onclick = btnOnclick.menuBtn_onclick(i, menuList[i]);
         console.log(menuList[i].children[0].pathname);
     }
-
 }
 btnOnclick.hideBtn_onclick = function () {
+    //隐藏按钮响应
     var containerOrigin = "container";
     var containerHide_menu = "container hideMenu";
     var containerHide_abst = "container hideMenu hideAbst";
@@ -24,18 +27,19 @@ btnOnclick.hideBtn_onclick = function () {
     var hideBtn = document.getElementById("hideBtn");
     var menuStatus = 2;
     var btnStatus = 1;
+    //菜单分三种样式
     if (container.className.length == 9)
         menuStatus = 2;
     else if (container.className.length == 18)
         menuStatus = 1;
     else if (container.className.length == 27)
         menuStatus = 0;
-
+    //按钮分两种样式
     if (menuStatus == 0)
         btnStatus = 0;
     else if (menuStatus == 2)
         btnStatus = 1;
-    console.log("menu:" + menuStatus + "btns:" + btnStatus);
+    //console.log("menu:" + menuStatus + "btns:" + btnStatus);
     return function () {
         if (menuStatus == 2) {
             container.className = containerHide_menu;
@@ -58,8 +62,13 @@ btnOnclick.hideBtn_onclick = function () {
         console.log("inside");
     }
 }
-btnOnclick.meneBtn_onclick = function (num) {
+btnOnclick.menuBtn_onclick = function (num, button) {
     return function () {
+        //排除连续按按钮情况
+        if(button.disabled===true){
+            return false;
+        }
+        //修改按钮样式：按下按钮样式
         var menuMx = document.getElementById("menuMx");
         var menuList = menuMx.children;
         var liActive = "liActive";
@@ -71,8 +80,10 @@ btnOnclick.meneBtn_onclick = function (num) {
             else
                 menuList[i].className = liUnactive;
         }
-        var coverLayer=document.getElementById("coverLayer");
-        coverLayer.className+=" containCover_layerLoad";
+        
+        //开始请求数据
+        ajax.GetAbst_data("get",button.children[0].pathname, view, button);
+        button.disabled = true;
         return false;
     }
 }
