@@ -52,8 +52,6 @@ body {
     height: 60%;
     opacity: 0;
     text-decoration: none;
-}
-.navg ul li a:link{
     color: #000000;
 }
 .navg ul li :hover{
@@ -109,7 +107,7 @@ body {
 }
 
 /*博客摘要容器样式*/
-.artiAbst_container{
+.classContainer{
     position: absolute;
     left: 200px;
     width: 25%;
@@ -132,7 +130,7 @@ body {
 .hideMenu .navg{
     width: 0;
 }
-.hideMenu .artiAbst_container{
+.hideMenu .classContainer{
     left: 0px;
 }
 .hideMenu .artiMain_container{
@@ -141,7 +139,7 @@ body {
 .hideAbst .navg{
     left: -505px;
 }
-.hideAbst .artiAbst_container{
+.hideAbst .classContainer{
     left: -305px;
 }
 .hideAbst .artiMain_container{
